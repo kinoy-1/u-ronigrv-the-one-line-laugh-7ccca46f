@@ -31,6 +31,12 @@ LINE = (
     "which is the nicest thing anyone has said to me all week."
 )
 
+# Gate: the judge scores only lines of 1-200 characters, one line.
+# Enforced here so a future edit to the line can never silently break it.
+assert 1 <= len(LINE) <= 200 and "\n" not in LINE, (
+    "line must be 1-200 characters, single line"
+)
+
 
 def main() -> None:
     out_dir = Path(OUTPUT_DIR)
